@@ -1,16 +1,23 @@
 #!/bin/bash
 
-# === FLATTED STARTZ BANNER ===
-echo "===================================="
-echo "   _____  _____   ___   ____   ___  "
-echo "  |  __ \\|  __ \\ / _ \\ |  _ \\ / _ \\ "
-echo "  | |  | | |  | | | | || | | | | | |"
-echo "  | |  | | |  | | | | || | | | | | |"
-echo "  | |__| | |__| | |_| || |_| | |_| |"
-echo "  |_____/|_____/ \\___/ |____/ \\___/ "
-echo "                                    "
-echo "        D R A C O - P A N E L       "
-echo "===================================="
+# [0/6] Install figlet (banner tool)
+echo "[0/6] Checking for figlet..."
+if ! command -v figlet &> /dev/null
+then
+    echo "figlet not found. Installing..."
+    sudo apt-get update && sudo apt-get install -y figlet
+else
+    echo "figlet is already installed."
+fi
+
+# === FANCY STARTZ BANNER (with LIGHT BLUE) ===
+echo -e "\033[1;36m"  # Start light blue color
+figlet "STARTZ"
+echo -e "\033[0m"      # Reset to default color
+
+echo "======================================================================================"
+echo "                               D R A C O   P A N E L                                  "
+echo "======================================================================================"
 echo ""
 
 # Step 1: Setup Node.js 20.x
